@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	<display-name>AplicacionBase</display-name>
+	<welcome-file-list>
+		<welcome-file>./jsp/main.html</welcome-file>
+		<welcome-file>./jsp/main.jsp</welcome-file>
+	</welcome-file-list>
+	
+	<context-param>
+		<param-name>cmpConfiguracionRuta-config</param-name>
+		<param-value>/arquitecturaAgave/DistV1/Configuracion/Configuracion.cla</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>IdConfigApp</param-name>
+		<param-value>AplicacionBase</param-value>
+	</context-param>
+	
+	<listener>
+		<listener-class>mx.isban.agave.configuracionGlobal.ListenerConfigGlobal</listener-class>
+	</listener>
+ 	
+</web-app>		
+	
+	

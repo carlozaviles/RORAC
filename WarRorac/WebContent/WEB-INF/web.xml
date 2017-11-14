@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+	<display-name>WarSucem</display-name>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			/WEB-INF/i18n.xml
+			/WEB-INF/DispatcherPrincipal-servlet.xml
+			/WEB-INF/DispatcherInputs-servlet.xml
+			/WEB-INF/DispatcherPublico-servlet.xml
+			/WEB-INF/DispatcherErrores-servlet.xml
+			/WEB-INF/DispatcherLanzadores-servlet.xml
+			/WEB-INF/DispatcherConsultas-servlet.xml
+			/WEB-INF/DispatcherAdministracion-servlet.xml
+		</param-value>
+	</context-param>
+	
+	<!-- Parametro y listener para dar del alta el componente cmpConfiguracion -->
+	<context-param>
+		<param-name>IdConfigApp</param-name>
+		<param-value>IdConfigAppRoracWEB</param-value>
+	</context-param>
+	
+	<listener>
+		<listener-class>mx.isban.agave.configuracion.ListenerConfig</listener-class>
+	</listener>
+	
+	<!-- Parametros del componente cmpSesiones. -->
+	<filter>
+		<display-name>FilterLogin</display-name>
+		<filter-name>FilterLogin</filter-name>
+		<filter-class>mx.isban.agave.commons.filters.FilterLogin</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>FilterLogin</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+	
+	<listener>
+		<listener-class>mx.isban.agave.commons.listeners.StateSessionListener</listener-class>
+	</listener>
+	
+	<!-- Dispatcher Principal -->
+	<servlet>
+		<servlet-name>DispatcherPrincipal</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>DispatcherPrincipal</servlet-name>
+		<url-pattern>/principal/*</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Dispatcher Publico -->
+	<servlet>
+		<servlet-name>DispatcherPublico</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>DispatcherPublico</servlet-name>
+		<url-pattern>/publico/*</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Dispatcher Errores -->
+	<servlet>
+		<servlet-name>DispatcherErrores</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>DispatcherErrores</servlet-name>
+		<url-pattern>/errores/*</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Dispatcher Inputs -->
+	<servlet>
+		<servlet-name>DispatcherInputs</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>DispatcherInputs</servlet-name>
+		<url-pattern>/inputs/*</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Dispatcher Lanzadores -->
+	<servlet>
+		<servlet-name>DispatcherLanzadores</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>DispatcherLanzadores</servlet-name>
+		<url-pattern>/lanzadores/*</url-pattern>
+	</servlet-mapping>
+
+	<!-- Dispatcher Consultas -->
+	<servlet>
+		<servlet-name>DispatcherConsultas</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>DispatcherConsultas</servlet-name>
+		<url-pattern>/consultas/*</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Dispatcher Administracion -->
+	<servlet>
+		<servlet-name>DispatcherAdministracion</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>DispatcherAdministracion</servlet-name>
+		<url-pattern>/administracion/*</url-pattern>
+	</servlet-mapping>
+</web-app>

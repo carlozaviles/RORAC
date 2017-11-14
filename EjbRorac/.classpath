@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="ejbModule"/>
+	<classpathentry kind="src" path=".apt_generated">
+		<attributes>
+			<attribute name="optional" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="/arquitecturaAgave/DistV1/Comunes/cmpCommons.jar"/>
+	<classpathentry kind="lib" path="/arquitecturaAgave/DistV1/SharedCore/cmpLoggingDB.jar"/>
+	<classpathentry kind="lib" path="/arquitecturaAgave/DistV1/SharedCore/cmpIsbanDataAccess.jar"/>
+	<classpathentry kind="lib" path="/arquitecturaAgave/DistV1/SharedCore/cmpLogging.jar"/>
+	<classpathentry kind="lib" path="/arquitecturaAgave/DistV1/SharedExt/aopalliance.jar"/>
+	<classpathentry kind="lib" path="/arquitecturaAgave/DistV1/SharedExt/commons-beanutils.jar"/>
+	<classpathentry kind="lib" path="/arquitecturaAgave/DistV1/SharedExt/commons-logging.jar"/>
+	<classpathentry kind="lib" path="/arquitecturaAgave/DistV1/SharedExt/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="/arquitecturaAgave/DistV1/SharedGlobal/cmpCommonsGlobal.jar"/>
+	<classpathentry kind="lib" path="/arquitecturaAgave/DistV1/SharedCore/cmpChannelCics.jar"/>
+	<classpathentry kind="lib" path="/arquitecturaAgave/DistV1/SharedCore/cmpChannelDataBase.jar"/>
+	<classpathentry kind="lib" path="/arquitecturaAgave/DistV1/SharedExt/commons-lang.jar"/>
+	<classpathentry kind="lib" path="/arquitecturaAgave/DistV1/SharedExt/ezmorph-1.0.2.jar"/>
+	<classpathentry kind="lib" path="/arquitecturaAgave/DistV1/SharedExt/json-lib-1.1.jar"/>
+	<classpathentry kind="lib" path="/arquitecturaAgave/DistV1/SharedExt/ojdbc6.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/com.ibm.ws.ast.st.runtime.runtimeTarget.v85/WebSphere Application Server v8.5">
+		<attributes>
+			<attribute name="owner.project.facets" value="jst.utility;jst.ejb"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/arquitecturaAgave/DistV1/SharedCore/cmpMensajeria.jar"/>
+	<classpathentry kind="lib" path="/arquitecturaAgave/DistV1/SharedSpring/org.springframework.beans-3.0.3.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/everis/develop/workspaces/outputFolder/LibreriasRORAC/build/cmpPistasAuditoriaRorac.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/WebSphere Application Server v8.5 JRE">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

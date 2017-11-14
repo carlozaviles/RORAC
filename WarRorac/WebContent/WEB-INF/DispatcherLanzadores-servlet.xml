@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/jsp/private/lanzadores/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+	
+	<bean class ="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    	<property name="location">
+        	<value>file:/arquitecturaAgave/DistV1/Configuracion/Rorac_AmbienteEJB.properties</value>
+       	</property>
+     </bean>
+	
+	<!-- Descarga de logs -->
+	<bean id="boDescargaLogs" class="org.springframework.ejb.access.SimpleRemoteStatelessSessionProxyFactoryBean">
+		<property name="jndiName" value="${EJBCLUSTER}mx.isban.rorac.servicio.lanzadores.BODescargaLogs"/>
+    	<property name="businessInterface" value="mx.isban.rorac.servicio.lanzadores.BODescargaLogs"/>
+	</bean>
+	
+	<bean id="boMonitorMotor" class="org.springframework.ejb.access.SimpleRemoteStatelessSessionProxyFactoryBean">
+		<property name="jndiName" value="${EJBCLUSTER}mx.isban.rorac.servicio.lanzadores.BOMonitorMotor"/>
+    	<property name="businessInterface" value="mx.isban.rorac.servicio.lanzadores.BOMonitorMotor"/>
+	</bean>
+	
+	<bean id="controllerDescargaLogs" name="controllerDescargaLogs" class="mx.isban.rorac.controller.lanzadores.ControllerDescargaLogs">
+		<property name="boDescargas" ref="boDescargaLogs"/>
+	</bean>
+	
+	<!-- Lanzador de Operaciones -->
+	<bean id="boLanzadorOperaciones" class="org.springframework.ejb.access.SimpleRemoteStatelessSessionProxyFactoryBean">
+		<property name="jndiName" value="${EJBCLUSTER}mx.isban.rorac.servicio.lanzadores.BOLanzadores"/>
+    	<property name="businessInterface" value="mx.isban.rorac.servicio.lanzadores.BOLanzadores"/>
+	</bean>
+	
+	<bean id="controllerCargaIOFinales" name="controllerCargaIOFinales" class="mx.isban.rorac.controller.lanzadores.ControllerCargaIOFinales">
+		<property name="boCargaIO" ref="boLanzadorOperaciones"/>
+	</bean>
+	
+	<bean id="controllerMotorRorac" name="controllerMotorRorac" class="mx.isban.rorac.controller.lanzadores.ControllerMotorRorac">
+		<property name="lanzador" ref="boLanzadorOperaciones"/>
+		<property name="monitorMotor" ref="boMonitorMotor"/>
+	</bean>
+	
+	<bean id="controlerReprocesos" name="controllerReprocesos" class="mx.isban.rorac.controller.lanzadores.ControllerReprocesos">
+		<property name="lanzadorReproceso" ref="boLanzadorOperaciones"/>
+	</bean>
+	
+	<bean id="controllerAprovisionamiento" name="controllerAprovisionamiento" class="mx.isban.rorac.controller.lanzadores.ControllerAprovisionamiento">
+		<property name="lanzadorAprovisionamiento" ref="boLanzadorOperaciones"/>
+	</bean>
+</beans>

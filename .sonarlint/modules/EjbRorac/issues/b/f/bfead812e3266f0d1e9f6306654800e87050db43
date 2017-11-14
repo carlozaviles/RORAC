@@ -1,0 +1,10 @@
+
+msquid:S1192…"PDefine a constant instead of duplicating this literal "TXT_DESCRIPCION" 4 times.(ýËÐ…üÿÿÿÿ
+€squid:S11925"iDefine a constant instead of duplicating this literal "FROM (SELECT ID_INSUMO, TXT_DESCRIPCION " 3 times.(ª„û
+“squid:S11927"wDefine a constant instead of duplicating this literal "      WHERE ID_INSUMO >= ? AND ID_INSUMO <= ?) INSUMO " 3 times.(¤à¹öÿÿÿÿÿ
+jsquid:S1192ˆ"MDefine a constant instead of duplicating this literal "DSC_EST_PROC" 4 times.(‰ÿÕ™ÿÿÿÿÿ
+zsquid:S11926"^Define a constant instead of duplicating this literal "      FROM RRC_MX_CAT_INSUMO " 3 times.(‚ƒæÿÿÿÿÿ
+dsquid:S1192l"MDefine a constant instead of duplicating this literal "ID Proceso: " 3 times.(ÚðÕæ
+{squid:S11929"dDefine a constant instead of duplicating this literal "           FROM RRC_MX_PRC_ESTATUS " 3 times.(Ô¨‚Ó
+jsquid:S1192†"MDefine a constant instead of duplicating this literal "FLG_EST_PROC" 4 times.(û˜¤Èüÿÿÿÿ
+„squid:S1192("hDefine a constant instead of duplicating this literal "ON INSUMO.ID_INSUMO = ESTATUS.ID_INSUMO" 3 times.(æ¯óÍûÿÿÿÿ

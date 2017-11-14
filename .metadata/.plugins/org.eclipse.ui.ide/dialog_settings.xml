@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ExternalProjectImportWizard">
+		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<item value="true" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="/media/EVERIS/_P RORAC/RORAC_02102015"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
+	</section>
+	<section name="WORKBENCH_SETTINGS">
+		<list key="ENABLED_TRANSFERS">
+		</list>
+	</section>
+	<section name="NewWizardAction">
+		<item value="org.eclipse.jdt.ui.wizards.JavaProjectWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+		</list>
+	</section>
+	<section name="ChooseWorkspaceDialogSettings">
+		<item value="229" key="DIALOG_Y_ORIGIN"/>
+		<item value="401" key="DIALOG_X_ORIGIN"/>
+	</section>
+	<section name="org.eclipse.ui.dialogs.FilteredResourcesSelectionDialog">
+		<item value="false" key="FilterByLocation"/>
+		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0A;&lt;workingSet workingSetName=&quot;&quot;/&gt;" key="WorkingSet"/>
+		<item value="true" key="ShowStatusLine"/>
+		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0A;&lt;History&gt;&#x0A;&lt;historyRootNode&gt;&#x0A;&lt;infoNode path=&quot;/EjbRoracClient/ejbModule/mx/isban/rorac/servicio/consultas/BOAltaParametros.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/EjbRorac/ejbModule/mx/isban/rorac/dao/consultas/DAOConsultaIOFinales.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/EjbRorac/ejbModule/mx/isban/rorac/dao/consultas/DAOConsultaIOFinalesImpl.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/cmpPistasAuditoriaRorac/src/mx/isban/rorac/bean/BeanPistasAuditoria.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/WarRorac/src/mx/isban/rorac/controller/lanzadores/ControllerMotorRorac.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/EjbRorac/ejbModule/mx/isban/rorac/servicio/lanzadores/BOLanzadoresImpl.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/EjbRorac/ejbModule/mx/isban/rorac/dao/lanzadores/DAOLanzadorOperaciones.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/WarRorac/src/mx/isban/rorac/controller/principal/ControllerPrincipal.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/EjbRorac/ejbModule/mx/isban/rorac/servicio/administracion/modulo/BOModuloImpl.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/EjbRorac/ejbModule/mx/isban/rorac/dao/administracion/modulo/DAOModuloImpl.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/EjbRorac/ejbModule/mx/isban/rorac/dao/lanzadores/DAOLanzadorOperacionesImpl.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/WarRorac/src/mx/isban/rorac/controller/inputs/ControllerCargaManual.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/EjbRorac/ejbModule/mx/isban/rorac/servicio/inputs/BOCargaManualImpl.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/WarRorac/src/mx/isban/rorac/controller/consultas/ControllerMonitorCargas.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/EjbRorac/ejbModule/mx/isban/rorac/servicio/consultas/BOAltaParametrosImpl.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/WarRorac/src/mx/isban/rorac/controller/consultas/ControllerAltaParametros.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/EjbRorac/ejbModule/mx/isban/rorac/servicio/consultas/BOConsultaParametrosImpl.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/EjbRorac/ejbModule/mx/isban/rorac/dao/consultas/DAOConsultaParametrosImpl.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/EjbRorac/ejbModule/mx/isban/rorac/dao/consultas/DAOAltaParametros.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/EjbRorac/ejbModule/mx/isban/rorac/dao/consultas/DAOAltaParametrosImpl.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;/historyRootNode&gt;&#x0A;&lt;/History&gt;" key="History"/>
+		<item value="false" key="ShowDerived"/>
+		<section name="DialogBoundsSettings">
+			<item value="1|Sans|10.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+			<item value="616" key="DIALOG_WIDTH"/>
+			<item value="516" key="DIALOG_HEIGHT"/>
+			<item value="206" key="DIALOG_Y_ORIGIN"/>
+			<item value="632" key="DIALOG_X_ORIGIN"/>
+		</section>
+	</section>
+</section>

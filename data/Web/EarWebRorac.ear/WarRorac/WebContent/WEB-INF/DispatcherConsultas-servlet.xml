@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/jsp/private/consultas/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+	
+	<bean class ="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    	<property name="location">
+        	<value>file:/arquitecturaAgave/DistV1/Configuracion/Rorac_AmbienteEJB.properties</value>
+       	</property>
+     </bean>
+	
+	<!-- Monitor -->
+	<bean id="boMonitorCargas" class="org.springframework.ejb.access.SimpleRemoteStatelessSessionProxyFactoryBean">
+		<property name="jndiName" value="${EJBCLUSTER}mx.isban.rorac.servicio.consultas.BOMonitorCargas"/>
+		<property name="businessInterface" value="mx.isban.rorac.servicio.consultas.BOMonitorCargas"/>
+	</bean>
+	
+	<bean id="controllerMonitorCargas" name="controllerMonitorCargas" class="mx.isban.rorac.controller.consultas.ControllerMonitorCargas">
+		<property name="monitorCargas" ref="boMonitorCargas"/>
+	</bean>
+	
+	<!-- ABC Tablas de parametros -->
+	<!-- Consulta de Parametros -->
+	<bean id="boConsultaParametros" class="org.springframework.ejb.access.SimpleRemoteStatelessSessionProxyFactoryBean">
+		<property name="jndiName" value="${EJBCLUSTER}mx.isban.rorac.servicio.consultas.BOConsultaParametros"/>
+		<property name="businessInterface" value="mx.isban.rorac.servicio.consultas.BOConsultaParametros"/>
+	</bean>
+	
+	<bean id="controllerConsultaParametros" name="controllerConsultaParametros" class="mx.isban.rorac.controller.consultas.ControllerConsultaParametros">
+		<property name="consultaParametros" ref="boConsultaParametros"/>
+	</bean>
+	
+	<!-- Alta de Parametros -->
+	<bean id="boAltaParametros" class="org.springframework.ejb.access.SimpleRemoteStatelessSessionProxyFactoryBean">
+		<property name="jndiName" value="${EJBCLUSTER}mx.isban.rorac.servicio.consultas.BOAltaParametros"/>
+    	<property name="businessInterface" value="mx.isban.rorac.servicio.consultas.BOAltaParametros"/>
+	</bean>
+	
+	<bean id="controllerAltaParametros" name="controllerAltaParametros" class="mx.isban.rorac.controller.consultas.ControllerAltaParametros">
+		<property name="altaParametros" ref="boAltaParametros"/>
+	</bean>
+	
+	<!-- Modificacion de Parametros -->
+	<bean id="boModificacionParametros" class="org.springframework.ejb.access.SimpleRemoteStatelessSessionProxyFactoryBean">
+		<property name="jndiName" value="${EJBCLUSTER}mx.isban.rorac.servicio.consultas.BOModificacionParametros"/>
+    	<property name="businessInterface" value="mx.isban.rorac.servicio.consultas.BOModificacionParametros"/>
+	</bean>
+	
+	<bean id="controllerModificacionParametros" name="controllerModificacionParametros" class="mx.isban.rorac.controller.consultas.ControllerModificacionParametros">
+		<property name="modificacionParametros" ref="boModificacionParametros"/>
+	</bean>
+	
+	<!-- Consulta de Inputs/Outputs por contrato -->
+	<bean id="boConsultaIOFinales" class="org.springframework.ejb.access.SimpleRemoteStatelessSessionProxyFactoryBean">
+		<property name="jndiName" value="${EJBCLUSTER}mx.isban.rorac.servicio.consultas.BOConsultaIOFinales"/>
+    	<property name="businessInterface" value="mx.isban.rorac.servicio.consultas.BOConsultaIOFinales"/>
+	</bean>
+	
+	<bean id="controllerConsultaIOFinales" name="controllerConsultaIOFinales" class="mx.isban.rorac.controller.consultas.ControllerConsultaIOFinales">
+		<property name="consultaIOFinales" ref="boConsultaIOFinales"/>
+	</bean>
+</beans>

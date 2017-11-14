@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application id="Application_ID" version="6" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/application_6.xsd">
+ <display-name>EarEjbRorac</display-name>
+ <module id="Module_1455063691795">
+ 	<ejb>EjbRorac.jar</ejb>
+ </module>
+ <module id="Module_1455063691749">
+ 	<web>
+ 		<web-uri>WarRorac_Ejb.war</web-uri>
+ 		<context-root>WarRorac_Ejb</context-root>
+ 	</web>
+ </module> 
+ </application> 

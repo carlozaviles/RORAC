@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="ear" name="EarEjbRorac">
+	<property environment="env"/>
+	<property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.6"/>
+    <property name="source" value="1.6"/>
+	<property name="arquitecturaAgave.location" value="/arquitecturaAgave/DistV1"/>
+	<path id="EarRoracEjb.classpath">
+		<pathelement location="${arquitecturaAgave.location}/Comunes/cmpCommons.jar"/>
+		<pathelement location="${arquitecturaAgave.location}/SharedGlobal/cmpCommonsGlobal.jar"/>
+		<pathelement location="${arquitecturaAgave.location}/SharedCore/cmpLogging.jar"/>
+		<pathelement location="${arquitecturaAgave.location}/SharedCore/cmpLoggingDB.jar"/>
+		<pathelement location="${arquitecturaAgave.location}/SharedCore/cmpChannelDataBase.jar"/>
+		<pathelement location="${arquitecturaAgave.location}/SharedCore/cmpIsbanDataAccess.jar"/>
+		<pathelement location="${arquitecturaAgave.location}/SharedExt/ojdbc6.jar"/>
+		<pathelement location="${arquitecturaAgave.location}/SharedCore/cmpMensajeria.jar"/>
+		<pathelement location="${arquitecturaAgave.location}/SharedExt/cmpPistasAuditoriaRorac.jar"/>
+		<pathelement location="${arquitecturaAgave.location}/SharedExt/j2ee.jar"/>
+		<pathelement location="../tmpRoracEjbClient"/>
+	</path>
+	<target name="clean">
+		<delete dir="../tmpEarRoracEjb"/>
+		<delete dir="../tmpRoracEjbClient"/>
+		<delete dir="../tmpRoracEjb"/>
+	</target>
+	<target name="init">
+		<mkdir dir="../tmpEarRoracEjb"/>
+		<mkdir dir="../tmpRoracEjbClient"/>
+		<mkdir dir="../tmpRoracEjb"/>
+		<copy includeemptydirs="false" todir="../tmpRoracEjbClient">
+            <fileset dir="../EjbRoracClient/ejbModule"/>
+        </copy>
+		<copy includeemptydirs="false" todir="../tmpRoracEjb">
+            <fileset dir="../EjbRorac/ejbModule"/>
+        </copy>
+	</target>
+	<target depends="init" name="build">
+		<javac debug="true" debuglevel="${debuglevel}" destdir="../tmpRoracEjbClient" source="${source}" target="${target}">
+            <src path="../EjbRoracClient/ejbModule"/>
+            <classpath refid="EarRoracEjb.classpath"/>
+        </javac>
+		<javac debug="true" debuglevel="${debuglevel}" destdir="../tmpRoracEjb" source="${source}" target="${target}">
+            <src path="../EjbRorac/ejbModule"/>
+            <classpath refid="EarRoracEjb.classpath"/>
+        </javac>
+	</target>
+	<target depends="build" name="ear">
+		<jar destfile="../tmpEarRoracEjb/EjbRoracClient.jar"
+			 basedir="../tmpRoracEjbClient">
+		</jar>
+		<jar destfile="../tmpEarRoracEjb/EjbRorac.jar" basedir="../tmpRoracEjb">
+			<manifest>
+				<attribute name="Class-Path" value="EjbRoracClient.jar"/>
+			</manifest>
+		</jar>
+		<war destfile="../tmpEarRoracEjb/WarRorac_Ejb.war" webxml="../WarRorac_Ejb/WebContent/WEB-INF/web.xml">
+			<fileset dir="../WarRorac_Ejb/WebContent"/>
+		</war>
+		<ear destfile="../EarEjbRorac.ear" appxml="../EarEjbRorac/META-INF/application.xml">
+			<fileset dir="../tmpEarRoracEjb"/>
+		</ear>
+		<copy file="../tmpEarRoracEjb/EjbRoracClient.jar" todir="../"/> 
+	</target>
+</project>

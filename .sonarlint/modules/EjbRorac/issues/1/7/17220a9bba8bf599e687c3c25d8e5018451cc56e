@@ -1,0 +1,7 @@
+
+˜squid:S1192‡"{Define a constant instead of duplicating this literal "Se obtuvo una respuesta nula de la capa de acceso a datos." 3 times.(‹ó­îûÿÿÿÿ
+¦ squid:MethodCyclomaticComplexityœ"tThe Cyclomatic Complexity of this method "obtenerEstatusLogsValidaciones" is 11 which is greater than 10 authorized.(°ÿˆùüÿÿÿÿ
+Osquid:S1481”"2Remove this unused "monitorCargas" local variable.(Ù–”ÿÿÿÿÿ
+=squid:S1166›"%Either log or rethrow this exception.(”ı¾
+Gsquid:S00108™")Either remove or fill this block of code.(¡»¢üùÿÿÿÿ
+^squid:S1854”"ARemove this useless assignment to local variable "monitorCargas".(Ù–”ÿÿÿÿÿ

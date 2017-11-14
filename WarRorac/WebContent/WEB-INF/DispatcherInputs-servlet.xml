@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/jsp/private/inputs/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+	
+	<bean class ="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    	<property name="location">
+        	<value>file:/arquitecturaAgave/DistV1/Configuracion/Rorac_AmbienteEJB.properties</value>
+       	</property>
+     </bean>
+	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+<!-- 		<property name="maxUploadSize" value="100000"/> -->
+	</bean>
+	
+	<bean id="boCargaManual" class="org.springframework.ejb.access.SimpleRemoteStatelessSessionProxyFactoryBean">
+		<property name="jndiName" value="${EJBCLUSTER}mx.isban.rorac.servicio.inputs.BOCargaManual"/>
+    	<property name="businessInterface" value="mx.isban.rorac.servicio.inputs.BOCargaManual"/>
+	</bean>
+	
+	<bean id="controllerInputs" name="controllerInputs" class="mx.isban.rorac.controller.inputs.ControllerCargaManual">
+		<property name="boCarga" ref="boCargaManual"/>
+	</bean>
+</beans>

@@ -1,0 +1,1 @@
+Documento incluido para que Git respete la estructura de carpetas.

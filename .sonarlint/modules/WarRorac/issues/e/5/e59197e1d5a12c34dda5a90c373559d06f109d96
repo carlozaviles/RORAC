@@ -1,0 +1,5 @@
+
+[squid:S1854"CRemove this useless assignment to local variable "lstrContextPath".(³ğŠÁ
+[squid:S2583F"DChange this condition so that it does not always evaluate to "false"(¢üŸ—
+_squid:S1858S"C"getHeader" returns a string, there's no need to call "toString()".(»öíœüÿÿÿÿ
+Ysquid:S1858B"C"getHeader" returns a string, there's no need to call "toString()".(—¤Õ

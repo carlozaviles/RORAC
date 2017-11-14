@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="ear" name="EarWebRorac">
+	<property environment="env"/>
+	<property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.6"/>
+    <property name="source" value="1.6"/>
+	<property name="arquitecturaAgave.location" value="/arquitecturaAgave/DistV1"/>
+	<path id="EarWebRorac.classpath">
+		<pathelement location="${arquitecturaAgave.location}/SharedExt/commons-logging.jar"/>
+		<pathelement location="${arquitecturaAgave.location}/SharedExt/jstl.jar"/>
+		<pathelement location="${arquitecturaAgave.location}/SharedSpring/org.springframework.asm-3.0.3.RELEASE.jar"/>
+		<pathelement location="${arquitecturaAgave.location}/SharedSpring/org.springframework.beans-3.0.3.RELEASE.jar"/>
+		<pathelement location="${arquitecturaAgave.location}/SharedSpring/org.springframework.context-3.0.3.RELEASE.jar"/>
+		<pathelement location="${arquitecturaAgave.location}/SharedSpring/org.springframework.core-3.0.3.RELEASE.jar"/>
+		<pathelement location="${arquitecturaAgave.location}/SharedSpring/org.springframework.expression-3.0.3.RELEASE.jar"/>
+		<pathelement location="${arquitecturaAgave.location}/SharedSpring/org.springframework.web-3.0.3.RELEASE.jar"/>
+		<pathelement location="${arquitecturaAgave.location}/SharedSpring/org.springframework.web.servlet-3.0.3.RELEASE.jar"/>
+		<pathelement location="${arquitecturaAgave.location}/SharedExt/aopalliance.jar"/>
+		<pathelement location="${arquitecturaAgave.location}/SharedSpring/org.springframework.aop-3.0.3.RELEASE.jar"/>
+		<pathelement location="${arquitecturaAgave.location}/Comunes/cmpCommons.jar"/>
+		<pathelement location="${arquitecturaAgave.location}/SharedCore/cmpLoggingDB.jar"/>
+		<pathelement location="${arquitecturaAgave.location}/SharedCore/cmpLogging.jar"/>
+		<pathelement location="${arquitecturaAgave.location}/SharedGlobal/cmpCommonsGlobal.jar"/>
+		<pathelement location="${arquitecturaAgave.location}/SharedExt/j2ee.jar"/>
+		<pathelement location="../tmpWarRorac/WEB-INF/lib/EjbRoracClient.jar"/>
+	</path>
+	<target name="clean">
+		<delete dir="../tmpWarRorac"/>
+		<delete dir="../tmpEarWebRorac"/>
+	</target>
+	<target name="init">
+		<mkdir dir="../tmpWarRorac"/>
+		<mkdir dir="../tmpEarWebRorac"/>
+		<copy includeemptydirs="false" todir="../tmpWarRorac">
+            <fileset dir="../WarRorac/WebContent"  excludes="**/*.class"/>
+        </copy>
+		<copy includeemptydirs="false" todir="../tmpWarRorac/WEB-INF/classes">
+            <fileset dir="../WarRorac/src"/>
+        </copy>
+		<copy file="../../EarEjbRorac.ear/EjbRoracClient.jar" todir="../tmpWarRorac/WEB-INF/lib"/>
+	</target>
+	<target name="build" depends="init">
+		<javac debug="true" debuglevel="${debuglevel}" destdir="../tmpWarRorac/WEB-INF/classes" source="${source}" target="${target}">
+            <src path="../WarRorac/src"/>
+            <classpath refid="EarWebRorac.classpath"/>
+        </javac>
+	</target>
+	<target depends="build" name="ear">
+		<war destfile="../tmpEarWebRorac/WarRorac.war" webxml="../WarRorac/WebContent/WEB-INF/web.xml">
+			<fileset dir="../tmpWarRorac"/>
+			<manifest>
+				<attribute name="Class-Path" value="EjbRoracClient.jar"/>
+			</manifest>
+		</war>
+		<ear destfile="../EarWebRorac.ear" appxml="../EarWebRorac/META-INF/application.xml">
+			<fileset dir="../tmpEarWebRorac"/>
+		</ear>
+	</target>
+</project>

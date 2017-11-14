@@ -1,0 +1,28 @@
+********************************************************************************
+product = WebSphere Application Server 8.5.5.4 (wlp-1.0.7.cl50420141211-1039)
+wlp.install.dir = /opt/eclipse/configuration/org.eclipse.osgi/915/0/.cp/resources/server_runtime/
+server.config.dir = /home/everis/develop/workspaces/rorac/.metadata/.plugins/com.ibm.etools.wdt.server.core/tmp0/usr/servers/defaultServer0/
+java.home = /opt/IBM/WebSphere/AppServer/java/jre
+java.version = 1.6.0
+java.runtime = Java(TM) SE Runtime Environment (pxi3260_26sr5fp1ifx-20130408_02 (SR5 FP1))
+os = Linux (2.6.32-220.el6.i686; x86) (es_MX)
+process = 14913@localhost.localdomain
+********************************************************************************
+[15/07/16 12:00:38:762 EDT] 00000001 com.ibm.ws.kernel.launch.internal.FrameworkManager           A CWWKE0001I: El servidor defaultServer0 se ha lanzado.
+[15/07/16 12:00:40:434 EDT] 00000001 com.ibm.ws.kernel.launch.internal.FrameworkManager           I CWWKE0002I: El kernel se ha iniciado después de 2.581 segundos
+[15/07/16 12:00:40:482 EDT] 0000001c com.ibm.ws.kernel.feature.internal.FeatureManager            I CWWKF0007I: La actualización de características se ha iniciado.
+[15/07/16 12:00:42:034 EDT] 0000001e com.ibm.ws.tcpchannel.internal.TCPChannel                    I CWWKO0219I: El canal TCP defaultHttpEndpoint se ha iniciado y ahora está a la escucha de solicitudes en el host *  (IPv6) puerto 14612.
+[15/07/16 12:00:42:335 EDT] 00000014 com.ibm.ws.app.manager.internal.monitor.DropinMonitor        A CWWKZ0058I: Supervisando aplicaciones de dropins. 
+[15/07/16 12:00:42:897 EDT] 00000027 com.ibm.ws.app.manager.AppMessageHelper                      I CWWKZ0018I: Iniciando la aplicación proxy.
+[15/07/16 12:00:43:332 EDT] 00000027 com.ibm.ws.webcontainer.osgi.webapp.WebGroup                 I SRVE0169I: Cargando módulo web: Ajax Proxy for IBM WebSphere.
+[15/07/16 12:00:43:337 EDT] 00000027 com.ibm.ws.webcontainer                                      I SRVE0250I: El módulo web Ajax Proxy for IBM WebSphere se ha enlazado con default_host.
+[15/07/16 12:00:43:338 EDT] 00000027 com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0016I: Aplicación web disponible (default_host): http://192.168.145.128:14612/proxy/
+[15/07/16 12:00:43:343 EDT] 00000027 com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0001I: La aplicación proxy se ha iniciado en 0.446 segundos.
+[15/07/16 12:00:43:360 EDT] 0000001c com.ibm.ws.kernel.feature.internal.FeatureManager            A CWWKF0012I: El servidor ha instalado las características siguientes: [jsp-2.2, localConnector-1.0, jaxrs-1.1, servlet-3.0, json-1.0].
+[15/07/16 12:00:43:360 EDT] 0000001c com.ibm.ws.kernel.feature.internal.FeatureManager            I CWWKF0008I: La actualización de características se ha completado en 2.921 segundos.
+[15/07/16 12:00:43:360 EDT] 0000001c com.ibm.ws.kernel.feature.internal.FeatureManager            A CWWKF0011I: El servidor defaultServer0 está preparado para ejecutar un planeta más inteligente.
+[15/07/16 12:01:36:457 EDT] 00000012 com.ibm.ws.kernel.launch.internal.FrameworkManager           A CWWKE0085I: El servidor defaultServer0 se detiene porque la JVM está concluyendo.
+[15/07/16 12:01:36:497 EDT] 0000002b com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0017I: Aplicación web eliminada (default_host): http://192.168.145.128:14612/proxy/
+[15/07/16 12:01:36:509 EDT] 0000002b com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0009I: La aplicación proxy se ha detenido correctamente.
+[15/07/16 12:01:36:642 EDT] 0000001e com.ibm.ws.tcpchannel.internal.TCPChannel                    I CWWKO0220I: El canal TCP defaultHttpEndpoint ha detenido la escucha de solicitudes en el host *  (IPv6) puerto 14612.
+[15/07/16 12:01:36:787 EDT] 00000001 com.ibm.ws.kernel.launch.internal.FrameworkManager           A CWWKE0036I: El servidor defaultServer0 se ha detenido después de 58.938 segundos.

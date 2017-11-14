@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<componentes>
+  <!--  En la configuracion del componente cmpConfiguracion nunca se debe de poner su atributo init en true, ya que el listener lo inicializa --> 
+  <cmpConfiguracion id="1" activo="true">
+	  <MODO replicable="false">local</MODO> 
+	  <!--  Es la forma en como se van a obtener los valores de las configuraciones. [local|distribuido] --> 
+	  <SERVIDOR replicable="false">server2</SERVIDOR> 
+	  <!--  Es el ID del servidor donde se esta ejecutando la App. Este es usado para operaciones con la BD --> 
+	  <ID_CONFIG_APP replicable="false">IdConfigAppRoracWEB</ID_CONFIG_APP> 
+	  <!--  Es el ID de la App, el cual es usado para identificar el conjunto de configuraciones que estan asociadas a esta App, Solo es usada para cosas referentes a las configuraciones en memoria. --> 
+	  <REF_ID_APP replicable="false">IdRefAppRoracWEB</REF_ID_APP> 
+	  <!--  Es el ID de la App, el cual es usado para hacer referencia a la App en toda operación que tenga que ver con 2ABE y con la BD. --> 
+	  <NOMBRE_APLICACION replicable="false">Rorac WEB</NOMBRE_APLICACION> 
+	  <!--  Es el nombre de la Aplicacion. --> 
+	  <MAXIMO_REGISTROS replicable="false">1000</MAXIMO_REGISTROS> 
+	  <!--  Es el máximo número de registros que serán recuperados. --> 
+	  <REGISTROS_PAGINA replicable="false">50</REGISTROS_PAGINA> 
+	  <!--  Es el máximo número de registros por pagina que serán mostrados.--> 
+	  <MAXIMO_PAGINAS replicable="false">20</MAXIMO_PAGINAS> 
+	  <!--  Es el máximo número de paginas que serán mostradas. --> 
+	  <RUTA_BASE_DIR_ARQ replicable="false">/arquitecturaAgave/DistV1</RUTA_BASE_DIR_ARQ> 
+	  <!--  Es la ruta base en la cual debera estar el primer directorio de la arquitectura --> 
+  </cmpConfiguracion>
+  <cmpLogging id="2" activo="true" init="true" class="mx.isban.agave.logging.Logging">
+	  <MODE_LOG replicable="true">FILE</MODE_LOG> 
+	  <!--  Modalidad de Loggeo [CONSOLE|FILE]   --> 
+	  <PATH_LOG replicable="true">/arquitecturaAgave/temp/cmpLogging/log/RoracWeb.log</PATH_LOG> 
+	  <!--  Ruta del archivo que contendra los logs [c://logs...|/logs....]   --> 
+	  <LEVEL_LOG replicable="true">TRACE</LEVEL_LOG> 
+	  <!--  Nivel de los logs que se enviaran a los appenders [TRACE|DEBUG|INFO|WARN|ERROR|FATAL].   --> 
+	  <DB_LOGGING replicable="true">FALSE</DB_LOGGING> 
+	  <!--  Determina si los log seran enviados a la BD [TRUE|FALSE].   --> 
+	  <CAMPO_FILTRO replicable="true" /> 
+	  <!--  Criterio por el cual se filtraran los logs enviados a BD [IP|ID_SESION|USUARIO|CONTRATO|CLASE].   --> 
+	  <FILTRO replicable="true" /> 
+	  <!--  Valor del criterio que deberá tener el filtro para que los logs sean enviados a BD.   --> 
+	  <ID_CANAL replicable="true" /> 
+	  <!--  Identificador del canal usado para enviar los logs a BD.   --> 
+	  <SHOW_WORK_THREAD replicable="true">FALSE</SHOW_WORK_THREAD> 
+	  <!--  Muestra en la trama del log el thread con el que se esta ejecutando las acciones.   --> 
+  </cmpLogging>
+  <IsbanDataAccess id="3" activo="true" init="true" class="mx.isban.agave.dataaccess.DataAccess">
+	  <GENERAL.ID_DEFAULT_CONFIGURATION_CICS replicable="false">CANAL_CICS</GENERAL.ID_DEFAULT_CONFIGURATION_CICS> 
+	  <!--  Define el idCanal o idFactory de tipo CICS que sera usado en caso de que no se defina uno al momento de realizar una operacion. --> 
+	  <GENERAL.ID_DEFAULT_CONFIGURATION_GENERICMQ replicable="false">CANAL_JMS_MENSAJERIA</GENERAL.ID_DEFAULT_CONFIGURATION_GENERICMQ> 
+	  <!--  Define el idCanal o idFactory de tipo GENERICMQ que sera usado en caso de que no se defina uno al momento de realizar una operacion. --> 
+	  <GENERAL.ID_DEFAULT_CONFIGURATION_DB replicable="false">CANAL_DB_DATASOURCE</GENERAL.ID_DEFAULT_CONFIGURATION_DB> 
+	  <!--  Define el idCanal o idFactory de tipo DATABASE que sera usado en caso de que no se defina uno al momento de realizar una operacion  --> 
+	  <GENERAL.ID_DEFAULT_CONFIGURATION_TUX replicable="false">CANAL_TUXEDO</GENERAL.ID_DEFAULT_CONFIGURATION_TUX> 
+	  <!--  Define el idCanal o idFactory de tipo TUXEDO que sera usado en caso de que no se defina uno al momento de realizar una operacion.   --> 
+	  <GENERAL.FACTORIES_REFERENCE replicable="false">DATABASE.CANAL_DB_DATASOURCE@DATABASE.CANAL_DB_JDBC@DATABASE.CANAL_DB_JDBC_WALLET@CICS.CANAL_CICS@TUXEDO.CANAL_TUXEDO@GENERICMQ.CANAL_JMS_MENSAJERIA</GENERAL.FACTORIES_REFERENCE> 
+	  <!--  Especifica los idCanal o idFactory junto con su tipo que se cargaran en el contexto del componente  --> 
+	  <GENERAL.PROFILE_MODE replicable="false">OFF</GENERAL.PROFILE_MODE> 
+	  <!--  Define si estara activo o no el modo Profile [ON|OFF]. Este modo se encarga de serializar y deserializar las peticiones realizadas mediante el DataAccess --> 
+	  <GENERAL.SIMUALATION_MODE replicable="false">OFF</GENERAL.SIMUALATION_MODE> 
+	  <!--  Define si estara activo o no el modo Simulation [ON|OFF]. Esto modo se encarga de cargar las respuestas a las peticiones realizadas por el DataAccess, desde los archivos serializados y por su codOper. Este modo depende de que el anterior este activo para su correcto funcionamiento.   --> 
+	  <GENERAL.STRESS_MODE replicable="false">OFF</GENERAL.STRESS_MODE> 
+	  <!--  Define si estara activo o no el modo Stress [ON|OFF]. Este modo se encarga de generar una respuesta fake, la cual es generada por datos hardcode, este modo no necesita de las dos anteriores.  --> 
+	  <GENERAL.PATH_PROFILE replicable="false">/arquitecturaAgave/temp/cmpIsbanDataAccess/profiles/</GENERAL.PATH_PROFILE> 
+	  <!--  Define la ruta donde se alojaran los archivos serializados para el uso de los modos profile y simulacion --> 
+	  <GENERAL.TRACE_ACTIVO replicable="false">ON</GENERAL.TRACE_ACTIVO> 
+	  <!--  Define si el log del cmp estara activo o no. --> 
+	  <GENERAL.LOG_FILE replicable="false">cmpIsbanDataAccess.log</GENERAL.LOG_FILE> 
+	  <!--  Define el nombre del log que usara este cmp. --> 
+	  <GENERAL.LOG_PATH replicabl="false">/arquitecturaAgave/temp/cmpIsbanDataAccess/log/</GENERAL.LOG_PATH> 
+	  <!--  Define la ruta donde se alojara el archivo de log. --> 
+	  <GENERAL.LOG_LEVEL replicable="false">INFO</GENERAL.LOG_LEVEL> 
+	  <!--  Define el nivel de log del cmp --> 
+	  <GENERAL.SECURITY_KEY replicable="false">prueba de seguridad</GENERAL.SECURITY_KEY> 
+	  <!--  Define una clave de seguridad, la cual es evaluada por el cmp y decide si tiene o no acceso quien implemente este cmp. (Poner cualquier valor.) --> 
+	  <!--  Canal 1 - Base de Datos Arquitectura Agave --> 
+	  <DATABASE.CANAL_DB_DATASOURCE.FACTORY_CLASS_NAME replicable="false">mx.isban.agave.dataaccess.factories.jdbc.FactoryJDBC</DATABASE.CANAL_DB_DATASOURCE.FACTORY_CLASS_NAME> 
+	  <!--  Especifica el nombre cualificado de la clase que implementa la fabrica encargada de crear las conexiónes que usara el canal --> 
+	  <DATABASE.CANAL_DB_DATASOURCE.TYPE_CONECTION replicable="false">DATASOURCE</DATABASE.CANAL_DB_DATASOURCE.TYPE_CONECTION> 
+	  <!--  Especifica la forma en como obtendra una conexión hacia la Base de datos: [JDBC|DATASOURCE] --> 
+	  <DATABASE.CANAL_DB_DATASOURCE.JNDI_NAME replicable="false">jdbc/rorac</DATABASE.CANAL_DB_DATASOURCE.JNDI_NAME> 
+	  <!--  Especifica el nombre JNDI del DATASOURCE --> 
+	  <DATABASE.CANAL_DB_DATASOURCE.JDBC_DRIVER replicable="false" /> 
+	  <!--  Define el nombre cualificado del Driver para poder establecer la conexion a la base de datos. --> 
+	  <DATABASE.CANAL_DB_DATASOURCE.JDBC_URL replicable="false" /> 
+	  <!--  Define la URL de conexion a utilizar.] --> 
+	  <DATABASE.CANAL_DB_DATASOURCE.JDBC_USE_WALLET replicable="false">FALSE</DATABASE.CANAL_DB_DATASOURCE.JDBC_USE_WALLET> 
+	  <!--  Define que la conexión a realizar va ha hacer uso de un wallet, por lo que no es necesario definir usuario y contrasenia [TRUE|FALSE] --> 
+	  <DATABASE.CANAL_DB_DATASOURCE.JDBC_USR replicable="false" /> 
+	  <!--  Define el nombre del usuario a utilizar para accesar a la BD mediante JNDI --> 
+	  <DATABASE.CANAL_DB_DATASOURCE.JDBC_PWD replicable="false" /> 
+	  <!--  Define el password a utilizar para accesar a la BD mediante JNDI  --> 
+	  <DATABASE.CANAL_DB_DATASOURCE.TIME_OUT replicable="false">30</DATABASE.CANAL_DB_DATASOURCE.TIME_OUT> 
+	  <!--  Especifica el tiempo máximo de espera para la ejecución de las operaciones hacia la Base de datos expresado en segundos  --> 
+	  <DATABASE.CANAL_DB_DATASOURCE.ENCODING replicable="false" /> 
+	  <!--  Especifica que encoding se usara para comunicar las sentencias SQL.  --> 
+	  <!--  Canal 2 - Base de Datos Arquitectura Agave --> 
+	  <DATABASE.CANAL_DB_JDBC.FACTORY_CLASS_NAME replicable="false">mx.isban.agave.dataaccess.factories.jdbc.FactoryJDBC</DATABASE.CANAL_DB_JDBC.FACTORY_CLASS_NAME> 
+	  <!--  Especifica el nombre cualificado de la clase que implementa la fabrica encargada de crear las conexiónes que usara el canal --> 
+	  <DATABASE.CANAL_DB_JDBC.TYPE_CONECTION replicable="false">JDBC</DATABASE.CANAL_DB_JDBC.TYPE_CONECTION> 
+	  <!--  Especifica la forma en como obtendra una conexión hacia la Base de datos: [JDBC|DATASOURCE] --> 
+	  <DATABASE.CANAL_DB_JDBC.JNDI_NAME replicable="false" /> 
+	  <!--  Especifica el nombre JNDI del DATASOURCE  --> 
+	  <DATABASE.CANAL_DB_JDBC.JDBC_DRIVER replicable="false">oracle.jdbc.driver.OracleDriver</DATABASE.CANAL_DB_JDBC.JDBC_DRIVER> 
+	  <!--  Define el nombre cualificado del Driver para poder establecer la conexion a la base de datos. --> 
+	  <DATABASE.CANAL_DB_JDBC.JDBC_URL replicable="false"></DATABASE.CANAL_DB_JDBC.JDBC_URL> 
+	  <!--  Define la URL de conexion a utilizar.] --> 
+	  <DATABASE.CANAL_DB_JDBC.JDBC_USE_WALLET replicable="false">FALSE</DATABASE.CANAL_DB_JDBC.JDBC_USE_WALLET> 
+	  <!--  Define que la conexión a realizar va ha hacer uso de un wallet, por lo que no es necesario definir usuario y contrasenia [TRUE|FALSE] --> 
+	  <DATABASE.CANAL_DB_JDBC.JDBC_USR replicable="false">ebe</DATABASE.CANAL_DB_JDBC.JDBC_USR> 
+	  <!--  Define el nombre del usuario a utilizar para accesar a la BD mediante JNDI --> 
+	  <DATABASE.CANAL_DB_JDBC.JDBC_PWD replicable="false">ebeadmin</DATABASE.CANAL_DB_JDBC.JDBC_PWD> 
+	  <!--  Define el password a utilizar para accesar a la BD mediante JNDI --> 
+	  <DATABASE.CANAL_DB_JDBC.TIME_OUT replicable="false">1000</DATABASE.CANAL_DB_JDBC.TIME_OUT> 
+	  <!--  Especifica el tiempo máximo de espera para la ejecución de las operaciones hacia la Base de datos expresado en segundos --> 
+	  <DATABASE.CANAL_DB_JDBC.ENCODING replicable="false">ISOXXX</DATABASE.CANAL_DB_JDBC.ENCODING> 
+	  <!--  Especifica que encoding se usara para comunicar las sentencias SQL. --> 
+	  <!--  Canal 2.1 - Base de Datos Arquitectura Agave uso de wallet --> 
+	  <DATABASE.CANAL_DB_JDBC_WALLET.FACTORY_CLASS_NAME replicable="false">mx.isban.agave.dataaccess.factories.jdbc.FactoryJDBC</DATABASE.CANAL_DB_JDBC_WALLET.FACTORY_CLASS_NAME> 
+	  <!--  Especifica el nombre cualificado de la clase que implementa la fabrica encargada de crear las conexiónes que usara el canal --> 
+	  <DATABASE.CANAL_DB_JDBC_WALLET.TYPE_CONECTION replicable="false">JDBC</DATABASE.CANAL_DB_JDBC_WALLET.TYPE_CONECTION> 
+	  <!--  Especifica la forma en como obtendra una conexión hacia la Base de datos: [JDBC|DATASOURCE] --> 
+	  <DATABASE.CANAL_DB_JDBC_WALLET.JNDI_NAME replicable="false" /> 
+	  <!--  Especifica el nombre JNDI del DATASOURCE --> 
+	  <DATABASE.CANAL_DB_JDBC_WALLET.JDBC_DRIVER replicable="false">oracle.jdbc.OracleDriver</DATABASE.CANAL_DB_JDBC_WALLET.JDBC_DRIVER> 
+	  <!--  Define el nombre cualificado del Driver para poder establecer la conexion a la base de datos. --> 
+	  <DATABASE.CANAL_DB_JDBC_WALLET.JDBC_URL replicable="false"></DATABASE.CANAL_DB_JDBC_WALLET.JDBC_URL> 
+	  <!--  Define la URL de conexion a utilizar.] --> 
+	  <DATABASE.CANAL_DB_JDBC_WALLET.JDBC_USE_WALLET replicable="false">TRUE</DATABASE.CANAL_DB_JDBC_WALLET.JDBC_USE_WALLET> 
+	  <!--  Define que la conexión a realizar va ha hacer uso de un wallet, por lo que no es necesario definir usuario y contrasenia [TRUE|FALSE] --> 
+	  <DATABASE.CANAL_DB_JDBC_WALLET.JDBC_USR replicable="false" /> 
+	  <!--  Define el nombre del usuario a utilizar para accesar a la BD mediante JNDI  --> 
+	  <DATABASE.CANAL_DB_JDBC_WALLET.JDBC_PWD replicable="false" /> 
+	  <!--  Define el password a utilizar para accesar a la BD mediante JNDI  --> 
+	  <DATABASE.CANAL_DB_JDBC_WALLET.TIME_OUT replicable="false">1000</DATABASE.CANAL_DB_JDBC_WALLET.TIME_OUT> 
+	  <!--  Especifica el tiempo máximo de espera para la ejecución de las operaciones hacia la Base de datos expresado en segundos  --> 
+	  <DATABASE.CANAL_DB_JDBC_WALLET.ENCODING replicable="false">ISOXXX</DATABASE.CANAL_DB_JDBC_WALLET.ENCODING> 
+	  <!--  Especifica que encoding se usara para comunicar las sentencias SQL. --> 
+	  <!--  Canal 3 - CICS Arquitectura Agave --> 
+	  <CICS.CANAL_CICS.FACTORY_CLASS_NAME replicable="false">mx.isban.agave.dataaccess.factories.jms.FactoryJMS</CICS.CANAL_CICS.FACTORY_CLASS_NAME> 
+	  <!--  Especifica el nombre cualificado de la clase que implementa la fabrica encargada de crear las conexiónes que usara el canal --> 
+	  <CICS.CANAL_CICS.JNDI_QUEUE_CONNECTION_FACTORY replicable="false">jms/FactoryMensajeriaAgave</CICS.CANAL_CICS.JNDI_QUEUE_CONNECTION_FACTORY> 
+	  <!--  Especifica el nombre JNDI de la fabrica de conexiónes de queue's --> 
+	  <CICS.CANAL_CICS.JNDI_QUEUE_REQUEST replicable="false">jms/QueueSendMensajeria</CICS.CANAL_CICS.JNDI_QUEUE_REQUEST> 
+	  <!--  Especifica el nombre JNDI de la queue usada para atender las peticiones CICS. --> 
+	  <CICS.CANAL_CICS.JNDI_QUEUE_RESPONSE replicable="false">jms/QueueReceiveMensajeria</CICS.CANAL_CICS.JNDI_QUEUE_RESPONSE> 
+	  <!--  Especifica el nombre JNDI de la queue usada para la respuesta de las peticiones CICS. --> 
+	  <CICS.CANAL_CICS.RECEIVE_MESSAGE_TIMEOUT replicable="false">10</CICS.CANAL_CICS.RECEIVE_MESSAGE_TIMEOUT> 
+	  <!--  Especifica el máximo tiempo que esperara el canal a que llegue el mensaje de respuesta mediante JMS. --> 
+	  <CICS.CANAL_CICS.TIME_TO_LIVE_MESSAGE replicable="false">11</CICS.CANAL_CICS.TIME_TO_LIVE_MESSAGE> 
+	  <!--  Especifica el máximo tiempo de vida del mensaje de petición, enviado mendiante JMS.   --> 
+	  <CICS.CANAL_CICS.USR_390 replicable="false">C682348</CICS.CANAL_CICS.USR_390> 
+	  <!--  Define el nombre del usuario en 390 y que sera agregado cuando se construya la trama ps7 [Este valor unicamente se usara cuando este activa la propiedad ADD_HEADER=TRUE]  --> 
+	  <CICS.CANAL_CICS.ADD_HEADER replicable="false">FALSE</CICS.CANAL_CICS.ADD_HEADER> 
+	  <!--  Define el formato del mensaje a enviar. [TRUE : Construye una trama con el mensaje a enviar y con formato ps7. | FALSE : Unicamente envia el mensaje tal y como se agrego en el bean.]  --> 
+	  <!--  Canal 4 - TUXEDO Arquitectura Agave  --> 
+	  <TUXEDO.CANAL_TUXEDO.FACTORY_CLASS_NAME replicable="false">mx.isban.agave.dataaccess.factories.sustux.FactorySusTux</TUXEDO.CANAL_TUXEDO.FACTORY_CLASS_NAME> 
+	  <!--  Especifica el nombre cualificado de la clase que implementa la fabrica encargada de crear las conexiónes que usara el canal   --> 
+	  <TUXEDO.CANAL_TUXEDO.JNDI_QUEUE_CONNECTION_FACTORY replicable="false">jms/FactoryMensajeriaAgave</TUXEDO.CANAL_TUXEDO.JNDI_QUEUE_CONNECTION_FACTORY> 
+	  <!--  Especifica el nombre JNDI de la fabrica de conexiónes de queue's : Usado cuando la modalidad MQ esta activo  --> 
+	  <TUXEDO.CANAL_TUXEDO.JNDI_QUEUE_REQUEST replicable="false">jms/QueueSendMensajeria</TUXEDO.CANAL_TUXEDO.JNDI_QUEUE_REQUEST> 
+	  <!--  Especifica el nombre JNDI de la queue usada para atender las peticiones tuxedo : Usado cuando la modalidad MQ esta activo   --> 
+	  <TUXEDO.CANAL_TUXEDO.JNDI_QUEUE_RESPONSE replicable="false">jms/QueueReceiveMensajeria</TUXEDO.CANAL_TUXEDO.JNDI_QUEUE_RESPONSE> 
+	  <!--  Especifica el nombre JNDI de la queue usada para la respuesta de las peticiones tuxedo : Usado cuando la modalidad MQ esta activo  --> 
+	  <TUXEDO.CANAL_TUXEDO.RECEIVE_MESSAGE_TIMEOUT replicable="false">10</TUXEDO.CANAL_TUXEDO.RECEIVE_MESSAGE_TIMEOUT> 
+	  <!--  Expecifica el máximo tiempo que esperara el canal a que llegue el mensaje de respuesta mediante JMS : Usado cuando la modalidad MQ esta activo   --> 
+	  <TUXEDO.CANAL_TUXEDO.TIME_TO_LIVE_MESSAGE replicable="false">11</TUXEDO.CANAL_TUXEDO.TIME_TO_LIVE_MESSAGE> 
+	  <!--  Especifica el máximo tiempo de vida del mensaje de petición, enviado mendiante JMS : Usado cuando la modalidad MQ esta activo   --> 
+	  <TUXEDO.CANAL_TUXEDO.ENDPOINT_WS_SUSTUX replicable="false"></TUXEDO.CANAL_TUXEDO.ENDPOINT_WS_SUSTUX> 
+	  <!--  Especifica el EndPoint (URL) del servicio web que sera usado para atender las peticiones tuxedo    --> 
+	  <TUXEDO.CANAL_TUXEDO.SUSTUX_ACTIVATE replicable="false">OFF</TUXEDO.CANAL_TUXEDO.SUSTUX_ACTIVATE> 
+	  <!--  Especifica por que medio se realizara la petición Tuxedo [ON: Se usa conexión mediante WebService - OFF: Se usa conexión mediante MQ (En esta parte se utiliza el canal por defecto)]   --> 
+	  <TUXEDO.CANAL_TUXEDO.CONNECTION_TIMEOUT_SUSTUX replicable="false">1000</TUXEDO.CANAL_TUXEDO.CONNECTION_TIMEOUT_SUSTUX> 
+	  <!--  Especifica el máximo tiempo que se va a esperar por la respuesta de la petición, enviado mediante JMS   --> 
+	  <!--  Canal 5 - GENERIC MQ Arquitectura Agave   --> 
+	  <GENERICMQ.CANAL_JMS_MENSAJERIA.FACTORY_CLASS_NAME replicable="false">mx.isban.agave.dataaccess.factories.jmsgeneric.FactoryJMSGeneric</GENERICMQ.CANAL_JMS_MENSAJERIA.FACTORY_CLASS_NAME> 
+	  <!--  Especifica el nombre cualificado de la clase que implementa la fabrica encargada de crear las conexiónes que usara el canal   --> 
+	  <GENERICMQ.CANAL_JMS_MENSAJERIA.JNDI_CONNECTION_FACTORY replicable="false">jms/FactoryMensajeriaAgave</GENERICMQ.CANAL_JMS_MENSAJERIA.JNDI_CONNECTION_FACTORY> 
+	  <!--  Especifica el nombre JNDI de la fabrica de conexiónes de queue's   --> 
+	  <GENERICMQ.CANAL_JMS_MENSAJERIA.JNDI_DESTINATION_REQUEST replicable="false">jms/QueueSendMensajeria</GENERICMQ.CANAL_JMS_MENSAJERIA.JNDI_DESTINATION_REQUEST> 
+	  <!--  Especifica el nombre JNDI de la queue usada para atender las peticiones generadas   --> 
+	  <GENERICMQ.CANAL_JMS_MENSAJERIA.JNDI_DESTINATION_RESPONSE replicable="false">jms/QueueReceiveMensajeria</GENERICMQ.CANAL_JMS_MENSAJERIA.JNDI_DESTINATION_RESPONSE> 
+	  <!--  Especifica el nombre JNDI de la queue usada para la respuesta de las peticiones   --> 
+	  <GENERICMQ.CANAL_JMS_MENSAJERIA.RECEIVE_MESSAGE_TIMEOUT replicable="false">10</GENERICMQ.CANAL_JMS_MENSAJERIA.RECEIVE_MESSAGE_TIMEOUT> 
+	  <!--  Especifica el máximo tiempo que se va a esperar por la respuesta del mensaje de petición, enviado mendiante JMS   --> 
+	  <GENERICMQ.CANAL_JMS_MENSAJERIA.TIME_TO_LIVE_MESSAGE replicable="false">11</GENERICMQ.CANAL_JMS_MENSAJERIA.TIME_TO_LIVE_MESSAGE> 
+	  <!--  Especifica el máximo tiempo de vida del mensaje de petición, enviado mendiante JMS   --> 
+	  <GENERICMQ.CANAL_JMS_MENSAJERIA.IS_REPLY_TO_QUEUE replicable="false">TRUE</GENERICMQ.CANAL_JMS_MENSAJERIA.IS_REPLY_TO_QUEUE> 
+	  <!--  Especifica que se asignara al mensaje de request la queue a la cual debera de responder, en este caso seria al 'Destination response'.   --> 
+  </IsbanDataAccess>
+  <cmpSesionesApi id="8" activo="true">
+	  <!--  Parametros de configuracion especiales para modo distribuido y para el 2ABE - No Modificar --> 
+	  <id replicable="false">8</id> 
+	  <activo replicable="false">true</activo> 
+	  <init replicable="false">true</init> 
+	  <class replicable="false" /> 
+	  <!--  Parametros de configuracion especiales para la Aplicacion Cliente [Front] --> 
+	  <!--  ID_CANAL replicable  = [Valor default: CANAL_ARQ_BD] Define el Id del canal que se usara para persistir la informacion de las sesiones. --> 
+	  <!--  TIME_OUT_APLICACION  = [Valor default: 300] Define el timeout de la aplicacion que debera de cumplirse antes de que la sesion del usuario expire. Expresado en segundos  [-1 = nunca expira ] --> 
+	  <ID_CANAL replicable="true">CANAL_DB_DATASOURCE</ID_CANAL> 
+	  <TIME_OUT_APLICACION replicable="true">900</TIME_OUT_APLICACION> 
+  </cmpSesionesApi>
+  <cmpLookAndFeel id="9" activo="true">
+	<LookAndFeel replicable="false">default</LookAndFeel> 
+	<!--  Define el nombre del paquete de LookAndFeel a utilizar (Paquete de archivos JS, CSS, etc..).   --> 
+	<ValidaSesiones replicable="false">1</ValidaSesiones> 
+	<!--  Define si estara activa o no la regla que impide el uso de multiples sesiones para un mismo usuario. [0=Inhabilitado | 1=Habilitado]   --> 
+		<UsaSAM replicable="false">1</UsaSAM> 
+	<!--  Define si la verificacion de las credenciales de acceso lo realice a travez de las cabeceras de SAM o mediante parametros usuario y languaje. [0=Inhabilitado | 1=Habilitado]   --> 
+	<UsaMenu replicable="false">1</UsaMenu> 
+	<!--  Define si se va a mostrar o no el menu configurado. [0=Inhabilitado | 1=Habilitado]   --> 
+	<UsaMensajes replicable="false">0</UsaMensajes> 
+	<!--  Define si se va a mostrar la imagen de mensajes en el Header de la aplicacion. [0=Inhabilitado | 1=Habilitado]   --> 
+	<TipoMenu replicable="false">0</TipoMenu> 
+	<!--  Define el tipo de menu a utilizar [0=Estatico : Muestra el menu tal y como esta, ademas de que se activaran los menus y sub-menus segun lo definido en el bean de LookAndFeel. | 1=Dinamico : Especifica que se agregaran los menus de forma dinamica o programatica desde el JSP myMenu.]   --> 
+	<TipoIdsMmenu replicable="false">1</TipoIdsMmenu> 
+	<!--  Define que menus y sub-menus se activaran [0=Excluyentes : Active automáticamente aquellos menús y/o sub-menús que estén agregados en el bean de LookAndFeel e inactiva el resto, solo si esta la configuración "TipoMenu=Estatico". | 1=Incluyentes : Inactiva automáticamente aquellos menús y/o sub-menús que estén agregados en el bean de LookAndFeel y activa el resto, solo si esta la configuración "TipoMenu=Estatico".]   --> 
+	<GrupoSAM replicable="false">grp_adminGlobal,grp_CalRORAC_Edicion,grp_CalRORAC_Proceso,grp_CalRORAC_Consulta,grp_CalRORAC_Usuario</GrupoSAM> 
+	<!--  Define un conjunto de grupos de SAM validos, los cuales permitiran el acceso al usuario si pertenece a alguno de estos. [Estos deberan de estar separado spor comas: grp_abe_sweb,grp_abe_seguridad,grp_abe_monitoreo,...]   --> 
+	<Idioma replicable="false">es_MX</Idioma> 
+	<!--  Define el idioma por defecto a utilizar para todo el LookAndFeel y la aplicacion.   --> 
+	<LogoCorporativo replicable="false">logoCorporativo.jpg</LogoCorporativo> 
+	<!--  Define el nombre de la imagen que sera mostrada para el logo corporativo. [Esta imagen debera estar localizada en la ruta: 'lf/default/img/menu']   --> 
+	<LogoAplicacion replicable="false" /> 
+	<!--  Define el nombre de la imagen que sera mostrada para el logo de la aplicacion. [Esta imagen debera estar localizada en la ruta: 'lf/default/img/menu']   --> 
+	<LogoNombreApp replicable="false" /> 
+	<!--  Define el nombre de la imagen que sera mostrada para el nombre de la aplicacion. [Esta imagen debera estar localizada en la ruta: 'lf/default/img/menu']   --> 
+	<LogoAvisos replicable="false">logoAvisos.gif</LogoAvisos> 
+	<!--  Define el nombre de la imagen que sera mostrada para la opcion de Avisos. [Esta imagen debera estar localizada en la ruta: 'lf/default/img/menu']   --> 
+	<LinkHeader1 replicable="false" /> 
+	<!--  Define la URI utilizada cuando el usuario selecciona el primer Header mostrado en la pagiina [Al configurarse esta propiedad, en automatico se mostrara solo este Header y el nombre mostrado estara definido en los archivos de i18n]   --> 
+	<LinkHeader2 replicable="false" /> 
+	<!--  Define la URI utilizada cuando el usuario selecciona el segundo Header mostrado en la pagiina [Al configurarse esta propiedad, en automatico se mostrara solo este Header y el nombre mostrado estara definido en los archivos de i18n]   --> 
+	<LinkHeader3 replicable="false" /> 
+	<!--  Define la URI utilizada cuando el usuario selecciona el tercero Header mostrado en la pagiina [Al configurarse esta propiedad, en automatico se mostrara solo este Header y el nombre mostrado estara definido en los archivos de i18n] --> 
+	<LinkHeader4 replicable="false" /> 
+	<!--  Define la URI utilizada cuando el usuario selecciona el cuarto Header mostrado en la pagiina [Al configurarse esta propiedad, en automatico se mostrara solo este Header y el nombre mostrado estara definido en los archivos de i18n]  --> 
+	<LinkHeader5 replicable="false" /> 
+	<!--  Define la URI utilizada cuando el usuario selecciona el quinto Header mostrado en la pagiina [Al configurarse esta propiedad, en automatico se mostrara solo este Header y el nombre mostrado estara definido en los archivos de i18n]  --> 
+	<LinkAyuda replicable="false" /> 
+	<!--  Define la URI utilizada cuando el usuario selecciona la imagen de Ayuda   --> 
+	<LinkLogoCorporativo replicable="false">http://www.santander.com.mx</LinkLogoCorporativo> 
+	<!--  Define la URI utilizada cuando el usuario selecciona el Logo Corporativo  --> 
+	<LinkLogoAplicacion replicable="false" /> 
+	<!--  Define la URI utilizada cuando el usuario selecciona el Logo de la App  --> 
+	<LinkLogoNombreApp replicable="false" /> 
+	<!--  Define la URI utilizada cuando el usuario selecciona el Logo del Nombre de la App  -->
+	<LinkSalirSAM replicable="false"><![CDATA[/../../pkmslogout?redir=/CalRORAC/WarRorac]]></LinkSalirSAM>
+	<!--  Define la URI que sera usada cuando el usuario seleccione la opcion de cerrar sesion. [Siempre y cuando este aciva la propiedad UsaSAM=1]  --> 
+	<LinkAvisos replicable="false">../avisos/mostrarAvisos.do</LinkAvisos> 
+	<!--  Define la URI que sera usada cuando el usuario seleccione la imagen de mensajes. [Esta se usara siempre y cuando este activa la propiedad UsaMensajes=1 ]  --> 
+	<LinkSesionExistente replicable="false">../publico/sesionExistente.go</LinkSesionExistente> 
+	<!--  Define la URI de una pagina de error que sera usada cuando el usuario intente accesar a la aplicacion desde 2 sesiones diferentes. --> 
+	<LinkSalirApp replicable="false">../principal/salir.do</LinkSalirApp> 
+	<!--  Define la URI que sera usada cuando el usuario seleccione la opcion de cerrar sesion. [Siempre y cuando este inaciva la propiedad UsaSAM=0] --> 
+	<LinkPagInicio replicable="false">../publico/login.go</LinkPagInicio> 
+	<!--  Define la URI de la pagina login a la cual se enviara al usuario en caso de que no cuente con una sesion valida. --> 
+	<PaginaExceptionArq replicable="false">../errores/errorAgave.do</PaginaExceptionArq> 
+	<!--  Define la URI de una Pagina de error personalizada de la aplicacion a la acual se enviara en caso de que exista un error no manejado dentro de las acciones del Controller --> 
+	<PaginaExceptionGral replicable="false">../errores/errorGrl.do</PaginaExceptionGral> 
+	<!--  Define la URI de una Pagina de error general de la Arquitectura a la acual se enviara en caso de que exista un error no manejado dentro de las acciones del Controller --> 
+   </cmpLookAndFeel>
+   <Aplicacion id="100" activo="true">
+       <PARAM_CONFIG_RUTA_INPUTS>/plnroracint/procesos/rorac/interfaces</PARAM_CONFIG_RUTA_INPUTS>
+   </Aplicacion>
+</componentes>

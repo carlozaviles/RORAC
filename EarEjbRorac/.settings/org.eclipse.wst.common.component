@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="EarEjbRorac">
+        <wb-resource deploy-path="/" source-path="/" tag="defaultRootSource"/>
+        <dependent-module archiveName="WarRorac_Ejb.war" deploy-path="/" handle="module:/resource/WarRorac_Ejb/WarRorac_Ejb">
+            <dependent-object>Module_1455063691749</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="EjbRorac.jar" deploy-path="/" handle="module:/resource/EjbRorac/EjbRorac">
+            <dependent-object>Module_1455063691795</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="EjbRoracClient.jar" deploy-path="/" handle="module:/resource/EjbRoracClient/EjbRoracClient">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>
